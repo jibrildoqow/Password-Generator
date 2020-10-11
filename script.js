@@ -21,8 +21,11 @@ function generatePassword() {
     // Loop if answer is outside parameters
     while (confirmLength < 8 || confirmLength > 128) {
         alert("Password must be between 8-128 characters. Try again");
+
         var confirmLength = (prompt("How many characters would you like your password to contain?"));
+        return "";
     }
+    console.log('confirmLength', confirmLength, typeof confirmLength);
 
     alert(' Your password will contain ' + confirmLength + ' characters ');
 
@@ -79,19 +82,15 @@ function generatePassword() {
     if (confirmSpecialCharacter) {
         passwordCharacters = passwordCharacters.concat(specialChar)
     }
-
     if (confirmNumericCharacter) {
         passwordCharacters = passwordCharacters.concat(number)
     }
-
     if (confirmLowerCase) {
         passwordCharacters = passwordCharacters.concat(alphaLower)
     }
-
     if (confirmUpperCase) {
         passwordCharacters = passwordCharacters.concat(alphaUpper)
     }
-
     console.log(passwordCharacters)
         // Empty string 
     var randomPassword = "";
@@ -102,7 +101,6 @@ function generatePassword() {
     }
     return randomPassword;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
